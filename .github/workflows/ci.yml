@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TAVILY_API_KEY: dummy
-      MLFLOW_TRACKING_URI: http://localhost:5000
+      MLFLOW_TRACKING_URI: file:///tmp/mlflow-test
       MLFLOW_EXPERIMENT: ci
       LOCAL_LLM: llama3.1
     steps:
