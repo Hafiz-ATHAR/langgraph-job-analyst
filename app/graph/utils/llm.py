@@ -5,4 +5,4 @@ _settings = get_settings()
 
 
 def get_llm():
-    return ChatOllama(model=_settings.local_llm) # type: ignore
+    return ChatOllama(model=_settings.local_llm)  # type: ignore

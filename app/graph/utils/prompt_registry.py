@@ -47,10 +47,12 @@ class LocalPrompt:
 def _load(name: str, alias: str) -> Prompt:
     uri = f"prompts:/{name}@{alias}"
     try:
-        return mlflow.genai.load_prompt(uri) # type: ignore
+        return mlflow.genai.load_prompt(uri)  # type: ignore
     except Exception as exc:
         if name not in PROMPTS:
-            raise KeyError(f"Prompt '{name}' not found in MLflow registry or local PROMPTS") from exc
+            raise KeyError(
+                f"Prompt '{name}' not found in MLflow registry or local PROMPTS"
+            ) from exc
         logger.warning(
             "MLflow load_prompt(%s) failed (%s); falling back to local template for '%s'",
             uri,

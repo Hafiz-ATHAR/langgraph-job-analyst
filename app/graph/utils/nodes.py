@@ -5,7 +5,9 @@ from app.graph.utils.llm import get_llm
 from app.graph.utils.prompt_registry import load_prompt
 from app.graph.utils.states import Analyst, AnalystTeam, OverallState
 
-RETRYABLE_LLM_EXCEPTIONS = (httpx.RequestError,) # CLAUDE: (APIConnectionError, APITimeoutError, RateLimitError)
+RETRYABLE_LLM_EXCEPTIONS = (
+    httpx.RequestError,
+)  # CLAUDE: (APIConnectionError, APITimeoutError, RateLimitError)
 
 
 def generate_analysts(state: OverallState) -> dict[str, list[Analyst]]:
@@ -30,4 +32,3 @@ def generate_analysts(state: OverallState) -> dict[str, list[Analyst]]:
         return {"analysts": []}
 
     return {"analysts": team.analysts}
-

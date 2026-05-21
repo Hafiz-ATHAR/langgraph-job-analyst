@@ -7,7 +7,9 @@ from pydantic import BaseModel, Field
 class Analyst(BaseModel):
     """A single analyst persona that investigates one angle of the job market."""
 
-    name: str = Field(description="Full human-style name of the analyst, e.g. 'Maya Chen'.")
+    name: str = Field(
+        description="Full human-style name of the analyst, e.g. 'Maya Chen'."
+    )
     role: str = Field(
         description="Short title describing the analyst's specialty, e.g. 'Salary Analyst', 'Skills Analyst', 'Hiring Trends Analyst'."
     )
@@ -30,8 +32,12 @@ class AnalystTeam(BaseModel):
 class Section(BaseModel):
     """A single section of the final report, written by one analyst."""
 
-    title: str = Field(description="Section heading, typically derived from the analyst's role.")
-    content: str = Field(description="Markdown-formatted section body synthesized from the analyst's research.")
+    title: str = Field(
+        description="Section heading, typically derived from the analyst's role."
+    )
+    content: str = Field(
+        description="Markdown-formatted section body synthesized from the analyst's research."
+    )
 
 
 class AnalystOutputState(TypedDict):

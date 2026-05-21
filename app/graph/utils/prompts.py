@@ -36,5 +36,5 @@ Search results:
 
 PROMPTS: dict[str, str] = {
     "generate_analysts": GENERATE_ANALYSTS_PROMPT,
-    "analyst_prompt": ANALYST_PROMPT
+    "analyst_prompt": ANALYST_PROMPT,
 }

@@ -23,5 +23,7 @@ def test_graph_module_imports(module_name: str) -> None:
 def test_main_graph_entrypoint() -> None:
     from app.graph.agent import graph
 
-    assert hasattr(graph, "invoke"), "app.graph.agent.graph is not a compiled StateGraph"
+    assert hasattr(graph, "invoke"), (
+        "app.graph.agent.graph is not a compiled StateGraph"
+    )
     assert graph.get_graph().nodes, "compiled graph has no nodes"
