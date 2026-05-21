@@ -45,8 +45,4 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --frozen
-      - run: uv run pytest --cov=app --cov-report=xml --cov-report=term
-      - uses: codecov/codecov-action@v4
-        with:
-          files: ./coverage.xml
-          fail_ci_if_error: false
+      - run: uv run pytest --cov=app --cov-report=term
