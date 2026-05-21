@@ -1,0 +1,46 @@
+# Secrets and local config
+.env
+.env.*
+!.env.example
+CLAUDE.local.md
+
+# Local scratch files
+rough_claude_md_file.txt
+notes.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Tool caches (ruff, mypy, pytest)
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Packaging / build artifacts
+*.egg-info/
+dist/
+build/
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# MLflow local artifacts
+mlruns/
+mlartifacts/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors (keeping .vscode/ tracked)
+*.swp
+*.swo
+.idea/
