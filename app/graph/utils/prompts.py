@@ -34,7 +34,28 @@ Search results:
 {{search_results}}
 """
 
+SYNTHESIZER_PROMPT = """You are a senior labor-market analyst writing the final report on the "{job_title}" role.
+
+You have been given two research sections produced independently by specialist analysts (compensation and required skills). Your job is to merge them into one cohesive report — not to summarize them, and not to concatenate them.
+
+Sections:
+{sections}
+
+Instructions:
+- Open with a 2-3 sentence executive summary capturing the most important findings across both sections.
+- Then present the findings under two clear headings, in this order: Compensation, Required Skills.
+- Preserve concrete facts from the sections: numbers, salary ranges, company names, locations, specific skills. Do not invent facts not present in the sections.
+- Where sections overlap (e.g., a certification mentioned in both compensation context and skills context), consolidate into the most appropriate section rather than repeating.
+- Where sections conflict, note the disagreement briefly rather than silently picking one.
+- Close with a short "Key takeaways" list of 3-5 bullet points.
+- Use neutral, analytical prose. No marketing language, no filler ("In today's fast-paced world...").
+- Target length: 300-500 words total.
+
+Format the output as Markdown.
+"""
+
 PROMPTS: dict[str, str] = {
     "generate_analysts": GENERATE_ANALYSTS_PROMPT,
     "analyst_prompt": ANALYST_PROMPT,
+    "synthesizer_prompt": SYNTHESIZER_PROMPT,
 }
