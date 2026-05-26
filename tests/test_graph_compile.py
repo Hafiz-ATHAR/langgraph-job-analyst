@@ -23,7 +23,21 @@ def test_graph_module_imports(module_name: str) -> None:
 def test_main_graph_entrypoint() -> None:
     from app.graph.agent import graph
 
-    assert hasattr(graph, "invoke"), (
-        "app.graph.agent.graph is not a compiled StateGraph"
-    )
+    assert hasattr(
+        graph, "invoke"
+    ), "app.graph.agent.graph is not a compiled StateGraph"
     assert graph.get_graph().nodes, "compiled graph has no nodes"
+
+
+def test_analyst_subgraph_compiles() -> None:
+    from app.graph.agent import _analyst_subgraph
+
+    assert hasattr(
+        _analyst_subgraph, "ainvoke"
+    ), "_analyst_subgraph is not a compiled StateGraph"
+
+    node_names = set(_analyst_subgraph.get_graph().nodes)
+    assert {
+        "search",
+        "summarize",
+    } <= node_names, f"expected 'search' and 'summarize' nodes, got: {node_names}"
